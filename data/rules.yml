@@ -1,0 +1,93 @@
+version: "2.0"
+
+rules:
+
+- rule: Activate information_form
+  steps:
+  - intent: my_problems_technical_En
+  - action: information_form
+  - active_loop: information_form
+  wait_for_user_input: false
+
+- rule: Activate information_form
+  steps:
+  - intent: my_problems_technical_Ar
+  - action: information_form
+  - active_loop: information_form
+  wait_for_user_input: false
+
+- rule: submit information_form
+  condition:
+  - active_loop: information_form
+  steps:
+  - action: information_form
+  - active_loop: null
+  - action: action_finish_form
+  - action: ask_exchange_slots
+
+- rule: rule affirm ask exchange slots
+  steps:
+  - intent: affirm_ask_exchange_slots
+  - action: response_ask_exchange_slots
+
+- rule: rule affirm ask exchange slots
+  steps:
+  - intent: exchange_name
+  - action: response_exchange_slots
+  - action: information_form
+  - active_loop: information_form
+  wait_for_user_input: false
+
+- rule: rule affirm ask exchange slots
+  steps:
+  - intent: exchange_phone
+  - action: response_exchange_slots
+  - action: information_form
+  - active_loop: information_form
+  wait_for_user_input: false
+
+- rule: rule affirm ask exchange slots
+  steps:
+  - intent: exchange_email
+  - action: response_exchange_slots
+  - action: information_form
+  - active_loop: information_form
+  wait_for_user_input: false
+
+- rule: rule affirm ask exchange slots
+  steps:
+  - intent: exchange_problem
+  - action: response_exchange_slots
+  - action: information_form
+  - active_loop: information_form
+  wait_for_user_input: false
+
+- rule: rule fallback
+  steps:
+  - intent: nlu_fallback
+  - action: response_fallback
+
+- rule: rule affirm
+  steps:
+  - intent: affirm
+  - action: response_fallback_utters
+
+- rule: rule fallback
+  steps:
+  - intent: out_of_scope
+  - action: response_fallback_utters
+
+- rule: rule no ask exchange slots
+  steps:
+    - intent: no_ask_exchange_slots
+    - action: response_ask_exchange_slots
+
+- rule: respond to FAQ_AR
+  steps: 
+  - intent: faq_ar
+  - action: utter_faq_ar
+
+- rule: respond to FAQ_EN
+  steps:
+  - intent: faq_en
+  - action: utter_faq_en

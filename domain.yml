@@ -1,0 +1,716 @@
+version: '2.0'
+config:
+  store_entities_as_slots: true
+session_config:
+  session_expiration_time: 5
+  carry_over_slots_to_new_session: true
+intents:
+- greet_En:
+    use_entities: []
+- start_massage:
+    use_entities: []
+- stop:
+    use_entities: []
+- greet_Ar:
+    use_entities: []
+- greet2_Ar:
+    use_entities: []
+- thanks_En:
+    use_entities: []
+- goodbye_Ar:
+    use_entities: []
+- bot_challenge_En:
+    use_entities: []
+- bot_challenge_Ar:
+    use_entities: []
+- how_are_you_En:
+    use_entities: []
+- how_are_you_Ar:
+    use_entities: []
+- thanks_Ar:
+    use_entities: []
+- ask_for_help_En:
+    use_entities: []
+- ask_for_help_Ar:
+    use_entities: []
+- bot_history_En:
+    use_entities: []
+- bot_history_Ar:
+    use_entities: []
+- university_accounts_En:
+    use_entities: true
+- university_accounts_Ar:
+    use_entities: true
+- my_problems_technical_En:
+    use_entities: true
+- my_problems_technical_Ar:
+    use_entities: true
+- itdl_information_En:
+    use_entities: []
+- itdl_information_Ar:
+    use_entities: []
+- jobs_information_En:
+    use_entities: []
+- jobs_information_Ar:
+    use_entities: []
+- your_name_En:
+    use_entities: true
+- your_name_Ar:
+    use_entities: true
+- your_email_En:
+    use_entities: true
+- your_email_Ar:
+    use_entities: true
+- your_phone_En:
+    use_entities: true
+- your_phone_Ar:
+    use_entities: true
+- goodbye_En:
+    use_entities: []
+- restart:
+    use_entities: []
+- back:
+    use_entities: []
+- out_of_scope:
+    use_entities: true
+- affirm:
+    use_entities: true
+- nlu_fallback:
+    use_entities: true
+- affirm_ask_exchange_slots:
+    use_entities: true
+- exchange_name:
+    use_entities: true
+- exchange_phone:
+    use_entities: true
+- exchange_email:
+    use_entities: true
+- exchange_problem:
+    use_entities: true
+- no_ask_exchange_slots:
+    use_entities: true
+- faq_en:
+    use_entities: []
+- faq_ar:
+    use_entities: []
+entities:
+- site
+- lang
+- name
+- email
+- phone
+- problem
+- type_person
+- phoneAr
+- fall_intent
+slots:
+  email:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: false
+    influence_conversation: false
+  fall_intent:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: false
+    influence_conversation: false
+  lang:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: false
+    influence_conversation: false
+  name:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: false
+    influence_conversation: false
+  phone:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: false
+    influence_conversation: false
+  problem:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: false
+    influence_conversation: false
+  site:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: true
+  type_person:
+    type: rasa.shared.core.slots.CategoricalSlot
+    initial_value: null
+    auto_fill: false
+    influence_conversation: false
+    values:
+    - student
+    - employee
+    - vistor
+  requested_slot:
+    type: rasa.shared.core.slots.UnfeaturizedSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: false
+responses:
+  utter_greet_En:
+  - text: Hey!
+  utter_greet2_Ar:
+  - text: هلا وغلا,تفضل كيف يمكنني ان اخدمك
+  utter_greet_Ar:
+  - text: وعليكم السلام ورحمة الله وبركاته ,كيف استطيع خدمتك
+  utter_goodbye_En:
+  - text: goodbye,see you later
+  - text: goodbye
+  - text: I am happy to help!
+  utter_goodbye_Ar:
+  - text: مع الف سلامة
+  - text: الى لقاء
+  utter_bot_challenge_En:
+  - text: I am Sattam,I am intelligent bot
+  utter_bot_challenge_Ar:
+  - text: انا سطام,وانا روبوت ذكي
+  utter_how_are_you_En:
+  - text: I am fine ,thanks
+  utter_how_are_you_Ar:
+  - text: الحمد لله
+  utter_thanks_En:
+  - text: you are welcome
+  utter_thanks_Ar:
+  - text: عفوا
+  utter_bot_history_En:
+  - text: Developers started my development since 2021
+  utter_bot_history_Ar:
+  - text: بدا المطورون يطوروني منذ عام 2021
+  utter_university_accounts_En:
+  - text: 'the university {site} is '
+  utter_university_accounts_Ar:
+  - text: '{site}: الجامعة هو'
+  utter_itdl_information_En:
+  - text: you can visit them website https://dar.psau.edu.sa
+  utter_itdl_information_Ar:
+  - text: يمكنك زيارة موقعهم على https://dar.psau.edu.sa
+  utter_jobs_information_En:
+  - text: you can visit them website jobs.psau.edu.sa
+  utter_jobs_information_Ar:
+  - text: يمكنك زيارة الموقع jobs.psau.edu.sa
+  utter_restart:
+  - text: the session restarted
+  utter_my_problems_technical_En:
+  - text: please tell me what your problem
+  utter_my_problems_technical_Ar:
+  - text: الرجاء اخبرني ماهي مشكلتك
+  utter_ask_for_help_En:
+  - text: sure, what's your problem
+  utter_ask_for_help_Ar:
+  - text: نعم , بالتأكيد اخبرني ماهي مشكلتك
+  utter_faq_ar/ask_admission_requirements:
+  - text: نأمل زيارة الرابط أدناه للاطلاع على المعلومات الشاملة عن القبول :https://dar.psau.edu.sa/ar/content/2020-10-06-13
+  utter_faq_en/ask_admission_requirements:
+  - text: 'Please, visit the following link for thorough information: https://dar.psau.edu.sa/ar/content/2020-10-06-13'
+  utter_faq_ar/ask_admission_standards:
+  - text: 'يمكن الاطلاع بشكل عام على المعايير من خلال الرابط التالي : https://dar.psau.edu.sa/ar/content/2020-10-06-13'
+  utter_faq_en/ask_admission_standards:
+  - text: 'The standards are available on the following link : https://dar.psau.edu.sa/ar/content/2020-10-06-13'
+  utter_faq_ar/ask_bachelor’s_degree:
+  - text: ' درجة جامعية تمنح بعد دراسة تخصص محدد لمدة لا تقل عن أربع سنوات أو دراسة عدد من المقررات والساعات حسب الخطة الدراسية وإنهاء متطلبات التخرج للحصول على شهادة درجة البكالوريوس'
+  utter_faq_en/ask_bachelor’s_degree:
+  - text: A university degree granted after studying a specific major for a period of no less than 4 years or studying several courses and hours according to the study plan and completing the graduation requirements to obtain a bachelor’s degree.
+  utter_faq_ar/ask_Diploma_degree:
+  - text: درجة جامعية تمنح بعد دراسة تخصص محدد لمدة لا تقل عن سنتين أو دراسة عدد من المقررات والساعات حسب الخطة الدراسية وإنهاء متطلبات التخرج للحصول على شهادة درجة الدبلوم المشارك.
+  utter_faq_en/ask_Diploma_degree:
+  - text: A university degree granted after studying a specific specialization for a period of no less than two years or studying several courses and hours according to the study plan and completing the graduation requirements to obtain an Associate Diploma degree.
+  utter_faq_ar/ask_study_system:
+  - text: نظام الدراسة الحالي هو الانتظام ويعني الدوام الكامل يوميا للدراسة حسب الجدول الدراسي المسجل للطالب ويتطلب تفرغا ً كاملا ً للدراسة
+  utter_faq_en/ask_study_system:
+  - text: The current study system is Attendance, which means daily full-time studies according to the student's registered academic schedule and requires full-time study.
+  utter_faq_ar/ask_distance_education_system:
+  - text: جميع برامج الانتساب أو التعليم عن بعد مغلقة حاليا بجامعة الأمير سطام بن عبدالعزيز، وفي حال إقرارها سيتم الإعلان عنها في الموقع الإلكتروني للجامعة.
+  utter_faq_en/ask_distance_education_system:
+  - text: All affiliation or distance education programs are currently closed at PSAU, and if approved, they will be announced on the university's website.
+  utter_faq_ar/ask_admission_online:
+  - text: ' التقديم إلكتروني فقط، ولا يوجد أي تقديم ورقي أو يدوي أثناء أو بعد فترة القبول، وفي حال انسحاب بعض الطلاب وتوفر مقاعد شاغرة يتم الإعلان عن بوابة القبول الإلحاقي إلكترونياً من خلال موقع الجامعة الإلكتروني. '
+  utter_faq_en/ask_admission_online:
+  - text: The admission is online only, and there is no paper or manual submission during or after the admission period, and in case that some students withdraw and vacant seats are available, the affiliate admission portal is announced electronically through the university's website.
+  utter_faq_ar/ask_university_admission_guide:
+  - text: ' دليل مهم جداً (خصوصاً للطلاب المستجدين) يحتوي على مواعيد وشروط القبول الجامعي وطريقة التقديم والتخصصات المتاحة بجامعة الأمير سطام بن عبدالعزيز. ويجب قراءته ً كاملاً قبل البدء في التقديم للقبول. ويمكن الحصول عليه من خلال موقع عمادة القبول والتسجيل الإلكتروني بجامعة الأمير سطام بن عبدالعزيز من خلال الرابط التالي: https://dar.psau.edu.sa/sites/default/files/1576657273.pdf'
+  utter_faq_en/ask_university_admission_guide:
+  - text: 'A very important guide (especially for new students). It contains the dates and conditions for university admission, the method of application, and the majors available at PSAU. It must be read in full before starting to apply for admission. It can be obtained through the website of the Deanship of Admission and Registration at PAU through the following link: https://dar.psau.edu.sa/sites/default/files/1576657273.pdf'
+  utter_faq_ar/ask_percentage_of_admission:
+  - text: 'ستعلن أقل نسبة تم القبول عليها في التخصصات الأكاديمية بعد إغلاق بوابة القبول وإعلان نتائج القبول. '
+  utter_faq_en/ask_percentage_of_admission:
+  - text: It will be announced after the admission portal is closed and the admission results announced.
+  utter_faq_ar/ask_recommended_browser:
+  - text: يوصى باستخدام متصفح قوقل كروم(Google Chrome) أو فاير فوكس( Firefox) لعرض الصفحة بشكل أفضل.
+  utter_faq_en/ask_recommended_browser:
+  - text: It is recommended to use Google Chrome or Firefox for better viewing of the page.
+  utter_faq_ar/ask_priority_in_admission_graduates:
+  - text: ليس هناك أولوية لخريجي هذه السنة عن الأعوام السابقة المحددة في دليل القبول.
+  utter_faq_en/ask_priority_in_admission_graduates:
+  - text: There is no priority for graduates of this year over previous years graduates that are specified in the admission guide.
+  utter_faq_ar/ask_priority_in_admission_date:
+  - text: ليس هناك أولوية في القبول بناء على تاريخ أو وقت التقديم، وبالتالي لا يؤثر التقديم في اول يوم عن اخر يوم خلال فترة التقديم.
+  utter_faq_en/ask_priority_in_admission_date:
+  - text: There is no priority in admission based on the date or time of application, and therefore the application on the first day does not affect the last day during the application period.
+  utter_faq_ar/ask_priority_in_admission_nationality:
+  - text: 'القبول الحالي للمتقدمين السعوديين أو من أمهات سعوديات فقط وسوف يتم الإعلان لاحقا عن مواعيد وضوابط قبول غير السعوديين من خلال برنامج المنح للطلاب غير السعوديين ويمكن الاطلاع على قسم المنح بموقع عمادة شؤون القبول والتسجيل من خلال الرابط التالي: https://dar.psau.edu.sa/ar/page/1-343'
+  utter_faq_en/ask_priority_in_admission_nationality:
+  - text: 'The current admission for Saudi applicants or from Saudi mothers only. The dates and controls for non-Saudis admission will be announced later through the scholarship program for non-Saudi students. The scholarship section on the Deanship of Admission and Registration Affairs website can be viewed through the following link: https://dar.psau.edu.sa/ar/page/1-343'
+  utter_faq_ar/ask_admission_previous_year:
+  - text: ' نعم يمكنك التقديم هذا العام إذا حققت شروط القبول العامة والمعلنة في دليل القبول.'
+  utter_faq_en/ask_admission_previous_year:
+  - text: Yes, you can apply this year if you meet the general admission requirements announced in the admission guide.
+  utter_faq_ar/ask_admission_withdraw:
+  - text: ' نعم يمكنك التقديم مرة أخرى للقبول بشرط تحقيق شروط القبول العامة والمعلنة في دليل القبول.'
+  utter_faq_en/ask_admission_withdraw:
+  - text: Yes, you can apply again for admission, provided that the general admission requirements announced in the admission guide are met.
+  utter_faq_ar/ask_admission_another_university:
+  - text: نعم يمكنك التقديم ولا يمكن لك تثبيت قبولك مالم تقدم انسحاب من الجامعة الأخرى.
+  utter_faq_en/ask_admission_another_university:
+  - text: Yes, you can apply but you cannot confirm your admission unless you submit a withdrawal from the other university.
+  utter_faq_ar/ask_admission_information:
+  - text: يجب تعبئة جميع البيانات وتشمل البيانات الأساسية وبيانات التواصل ورغبات التخصصات الأكاديمية. وفي حال وجود نقص أو إدخال بيانات غير صحيحة سيتم إلغاء الطلب. ويتوجب التأكد من إدخال النسبة الثانوية بشكل صحيح.
+  utter_faq_en/ask_admission_information:
+  - text: All data that include basic information, contact information and the wishes of academic majors must be filled. If there is a shortage or incorrect information is entered, the request will be canceled. Make sure that the high school percentage is entered correctly.
+  utter_faq_ar/ask_Password_change:
+  - text: يمكن تعديلها من خلال رابط نسيت كلمة المرور الموجود عند الدخول على حسابك في بوابة القبول الإلكتروني الموحد. وبالإمكان الاطلاع على الأسئلة الشائعة في بوابة القبول الموحد.
+  utter_faq_en/ask_Password_change:
+  - text: Yes, it can be modified through the forgot password link found when entering your account on the unified e-admission portal. The common questions can be found on the unified e-admission portal.
+  utter_faq_ar/ask_admission_outside:
+  - text: يمكن التواصل مع عمادة شؤون القبول والتسجيل من خلال نظام الدعم والمساندة خلال فتره التقديم وتزويدهم بشهادة المرحلة الثانوية ومعادلة الشهادة الصادرة من لجنة معادلة الشهادات بوزارة التعليم.
+  utter_faq_en/ask_admission_outside:
+  - text: You can contact the Deanship of Admission and Registration Affairs through the support system during the application period and provide them with a high school diploma and certificate equivalency issued by the Certificate Equalization Committee at the Ministry of Education.
+  utter_faq_ar/ask_obtain_test_scores:
+  - text: ' نعم يتم استيراد بيانات درجات اختباري القدرات العامة والتحصيل الدراسي آلياً من مصادر البيانات الإلكترونية لآخر خمسة سنوات.'
+  utter_faq_en/ask_obtain_test_scores:
+  - text: Yes, data for the General Aptitude and Academic Achievement scores are automatically imported from electronic data sources for the last five years.
+  utter_faq_ar/ask_obtain_test_more_once:
+  - text: ' سيتم احتساب أعلى نتيجة اجتياز حصلت عليها في اختبار القدرات العامة واختبار التحصيل الدراسي لآخر خمس سنوات بشرط توفر النتيجة لدى الجامعة أثناء فترة التقديم وقبل إغلاق بوابة القبول الجامعي للتقديم'
+  utter_faq_en/ask_obtain_test_more_once:
+  - text: The highest passing score obtained in the General Aptitude Test and Academic Achievement Test for the last five years will be counted, provided that the result is available at the university during the application period and before the university admission portal for application ends.
+  utter_faq_ar/ask_from_university_admission_withdrawn:
+  - text: نعم يمكنك بشرط أن يكون قد مضى على طي قيدك من الجامعة سنتين وتكون محقق شروط القبول في حينه للتقديم.
+  utter_faq_en/ask_from_university_admission_withdrawn:
+  - text: Yes, you can, provided that two years have passed since the termination of your registration from the university, and you have fulfilled the admission requirements at the time to apply.
+  utter_faq_ar/ask_admission_dropped:
+  - text: نعم يمكنك بشرط أن يكون قد مضى على انسحابك من الجامعة سنتين وتكون محقق شروط القبول في حينه للتقديم.
+  utter_faq_en/ask_admission_dropped:
+  - text: Yes, you can, provided that two years have passed since the dropped out from the university, and you have fulfilled the admission requirements at the time to apply.
+  utter_faq_ar/ask_dismissed_academically:
+  - text: 'نعتذر لا يمكنك التقدم مرة أخرى. '
+  utter_faq_en/ask_dismissed_academically:
+  - text: We are sorry, you cannot apply again.
+  utter_faq_ar/ask_admission_non_saudis:
+  - text: يتم معاملة المتقدمين غير السعوديين من أمهات سعوديات مثل المتقدمين السعوديين. حيث يقوم المتقدم بإدخال رقم الإقامة الخاص به، وتحديد جنسية الأم سعودية واستكمال الطلب. ومن ثم يجب عليه إرسال ما يثبت ذلك بإرفاق الإقامة وشهادة الميلاد وبطاقة الهوية الوطنية للأم لعمادة شؤون القبول والتسجيل عبر نظام الدعم والمساندة أثناء فترة التقديم.
+  utter_faq_en/ask_admission_non_saudis:
+  - text: Non-Saudi applicants from Saudi mothers are treated the same as Saudi applicants. Where the applicant enters his residency number, determines the mother's nationality, and completes the application. Then, he must send proof of this, with the attachment of the residency, birth certificate, and national identity card of the mother to the Deanship of Admission and Registration Affairs through the support system during the application period.
+  utter_faq_ar/ask_admission_years:
+  - text: 'نعتذر لا يمكن الالتحاق بهذه البرامج حسب ضوابط وشروط القبول لهذا العام لمضي خمس سنوات على تخرجك. '
+  utter_faq_en/ask_admission_years:
+  - text: We re sorry, it is not possible to join these programs according to the admission controls and conditions for this year, because five years have passed since your graduation.
+  utter_faq_ar/ask_admission_wishes:
+  - text: يجب إدخال جميع الرغبات المتاحة ويجب ترتيب الرغبات حسب الأولوية وليس بشكل عشوائي.
+  utter_faq_en/ask_admission_wishes:
+  - text: All available wishes must be entered, and it should be ranked in order of priority, not randomly.
+  utter_faq_ar/ask_admission_modify_data_befor_close:
+  - text: 'نعم يمكن من خلال الدخول على تعديل طلب القبول خلال فتره التقديم. '
+  utter_faq_en/ask_admission_modify_data_befor_close:
+  - text: Yes, by modifying the admission application during the application period.
+  utter_faq_ar/ask_admission_modify_data_after_close:
+  - text: نعتذر لا يمكن التعديل ابدآ بعد إغلاق بوابة القبول.
+  utter_faq_en/ask_admission_modify_data_after_close:
+  - text: We are sorry, the modification cannot be done after closing the admission portal.
+  utter_faq_ar/ask_admission_same_phone:
+  - text: ' لا يمكن، يجب على المتقدم استخدام بريد إلكتروني ورقم هاتف جوال خاص به لأنه سوف يتم ارسال رسائل خاصة بالطلب على الرقم المدخل. '
+  utter_faq_en/ask_admission_same_phone:
+  - text: No, the applicant must use his own e-mail and mobile phone number because application messages will be sent to the entered number.
+  utter_faq_ar/ask_admission_previously_applied:
+  - text: لا يمكن متابعة الطلب السابق، ويجب تقديم طلب قبول جامعي جديد عند فتح بوابة القبول لكل عام.
+  utter_faq_en/ask_admission_previously_applied:
+  - text: The previous request cannot be resumed. A new university admission application must be submitted when the admission portal opens for each year.
+  utter_faq_ar/ask_admission_receive_messages_phone:
+  - text: يبدو أنك قمت بحظر الرسائل الدعائية من إعدادات الهاتف الجوال أو من مزود الخدمة وقد أدى إلى عدم وصول الرسائل النصية والواردة من الجامعة لذا يرجى إلغاء حظر الرسائل
+  utter_faq_en/ask_admission_receive_messages_phone:
+  - text: You may have blocked the promotional messages from the mobile phone settings or from the service provider, so please unblock them.
+  utter_faq_ar/ask_admission_receive_messages_email:
+  - text: 'عزيزي المتقدم، في حال عدم رؤية الرسائل المتعلقة بطلب القبول أو الدعم الفني داخل البريد الوارد الخاص ببريدك الإلكتروني، يرجى التأكد داخل البريد المهمل (البريد المزعج). '
+  utter_faq_en/ask_admission_receive_messages_email:
+  - text: Dear applicant, if you have not seen the messages related to the admission application or technical support within the inbox of your e-mail, please check your spam.
+  utter_faq_ar/ask_admission_service_offices:
+  - text: 'ليس هناك أي مكاتب أو حسابات، ويمكن التواصل مباشرة مع عمادة شؤون القبول والتسجيل بجامعة الأمير سطام بن عبدالعزيز من خلال فريق الدعم والمساندة إن احتجت لأي مساعدة. بريد قسم القبول: rd-adm@psau.edu.sa'
+  utter_faq_en/ask_admission_service_offices:
+  - text: 'No, and you can communicate directly with the Deanship of Admission and Registration Affairs at PSAU through the support team if you need any help. Admission Department mail: rd-adm@psau.edu.sa'
+  utter_faq_ar/ask_admission_difficulties:
+  - text: ' يمكنك التواصل مع فريق الدعم والمساندة لمساعدتك في حل المشكلة أو أي صعوبات قد تواجهها، وسيتم الرد في أقرب وقت ممكن عبر البريد الإلكتروني أو عبر متابعة الطلب وسيكون ذلك متاحا طوال فترة التقديم من خلال خدمة اتصل بنا الموجودة في بوابة القبول.'
+  utter_faq_en/ask_admission_difficulties:
+  - text: You can contact the support team to help you solve the problem or any difficulties you may encounter. They will respond as soon as possible via e-mail or follow up the request, which will be available throughout the application period through the Contact Us service located in the admission portal.
+  utter_faq_ar/ask_admission_annual:
+  - text: يعني أن التقديم للقبول الجامعي لدرجتي البكالوريوس والدبلوم المشارك مرة واحدة قبل بداية العام الدراسي، ولا يوجد تقديم للقبول للفصل الدراسي الثاني.
+  utter_faq_en/ask_admission_annual:
+  - text: Applying for university admission to the bachelor’s and associate diploma degrees occurs once before the beginning of the academic year, and there is no application for admission to the second semester.
+  utter_faq_ar/ask_admission_sorting:
+  - text: 'حسب أولوية ترتيب الرغبات وحسب النسب الموزونة والمكافئة والمقاعد المتاحة لكل تخصص. '
+  utter_faq_en/ask_admission_sorting:
+  - text: According to the priority of ordering desires and according to equivalent percentage and the seats available for each major.
+  utter_faq_ar/ask_admission_initial_result:
+  - text: يجب الدخول على بوابة القبول الإلكترونية في موعد إعلان النتائج والمحدد في دليل القبول
+  utter_faq_en/ask_admission_initial_result:
+  - text: Check the online admission portal on the date of announcing the results, which will be specified in the admission guide.
+  utter_faq_ar/ask_admission_initially:
+  - text: يجب الدخول على بوابة القبول الإلكترونية ومن ثم تثبيت القبول في الفترة المحددة في دليل القبول لتفادي إلغاء قبولك.
+  utter_faq_en/ask_admission_initially:
+  - text: You must enter the e-admission portal and then confirm your acceptance in the period specified in the admission guide to avoid canceling your admission.
+  utter_faq_ar/ask_other_admission_procedures:
+  - text: ليس هناك أي إجراءات أخرى تتعلق بالقبول الجامعي.
+  utter_faq_en/ask_other_admission_procedures:
+  - text: There are no other procedures related to university admission.
+  utter_faq_ar/ask_admission_confirmed:
+  - text: 'يمكنك الدخول على البوابة الأكاديمية وإدخال بيانات الدخول المرسلة على البريد الإلكترونية والاطلاع على الخطة الدراسية والاستفادة من الخدمات الإلكترونية المتاحة للطالب. '
+  utter_faq_en/ask_admission_confirmed:
+  - text: You can access the academic portal, enter the login data sent to the e-mail, view the study plan, and benefit from the student’s e-services
+  utter_faq_ar/ask_admission_admitted_or_not:
+  - text: 'يمكنك الدخول على رابط التحقق من قيد الطالب عبر الرابط التالي: https://services-pro.psau.edu.sa/AdmissionStatus/'
+  utter_faq_en/ask_admission_admitted_or_not:
+  - text: 'You can access the student registration verification link via the following: https://services-pro.psau.edu.sa/AdmissionStatus/'
+  utter_faq_ar/ask_admission_secondary_school_files:
+  - text: ' لا يلزم إرسال أي ملفات، حيث إنه يتم استيراد نتائج المرحلة الثانوية واختبارات المركز الوطني للقياس إلكترونيا إلا إذا تم طلبها من قبل عمادة شؤون القبول والتسجيل.'
+  utter_faq_en/ask_admission_secondary_school_files:
+  - text: No, there is no need. The results of the secondary phase and the tests of the National Center for Measurement are imported electronically, unless requested by the Deanship of Admission and Registration Affairs.
+  utter_faq_ar/ask_admission_not_accepted:
+  - text: ' يعتمد القبول بالجامعة على عدد من المعايير مثل درجة اختبار القدرات العامة ودرجة اختبار التحصيل الدراسي، بالإضافة إلى أولوية الرغبات المدخلة.'
+  utter_faq_en/ask_admission_not_accepted:
+  - text: Admission to the university is based on a number of criteria such as the general aptitude test score and the academic achievement test score, in addition to the priority of input desires.
+  utter_faq_ar/ask_admission_another_nomination:
+  - text: ' لا يوجد أي عمليات ترشيح أو ترقية أخرى بعد إعلان نتائج المقبولين والمقبولات لهذا العام. '
+  utter_faq_en/ask_admission_another_nomination:
+  - text: There is no other nomination or promotion process after announcing the results of those admitted for this year.
+  utter_faq_ar/ask_admission_postpone:
+  - text: ' لا يمكن تأجيل القبول لدرجة البكالوريوس أو الدبلوم، ولكن يمكن إعادة التقديم على القبول في العام القادم. '
+  utter_faq_en/ask_admission_postpone:
+  - text: Admission to bachelor's degree or diploma cannot be postponed, but you can submit new application for admission in the next year.
+  utter_faq_ar/ask_admission_another_opportunity:
+  - text: ' لا توجد فرصة أخرى للتقدم للجامعة بعد انتهاء المدة المحددة ويمكن التقدم مرة أخرى العام القادم وتحقيق ضوابط القبول والتي سوف تعلن في حينها'
+  utter_faq_en/ask_admission_another_opportunity:
+  - text: There is no other opportunity to apply to the university after the end of the specified period, and it is possible to apply again next year according to the admission controls that will be announced next year.
+  utter_faq_ar/ask_admission_transfer_diploma_to_bachelor’s:
+  - text: '  لا يمكنك التحويل من درجة الدبلوم المشارك الى درجة البكالوريوس.'
+  utter_faq_en/ask_admission_transfer_diploma_to_bachelor’s:
+  - text: You cannot transfer from an associate degree to a bachelor's degree.
+  utter_faq_ar/ask_admission_study_programs_for_fees:
+  - text: نعم وبالإمكان التواصل بخصوص ذلك مع عمادة خدمة المجتمع والتعليم المستمر ومعهد البحوث والخدمات الاستشارية في موقع الجامعة الإلكتروني
+  utter_faq_en/ask_admission_study_programs_for_fees:
+  - text: Yes, and you can contact the Deanship of Community Service and Continuing Education and the Institute of Research and Consulting Services from the university's website.
+  utter_faq_ar/ask_admission_academic_withdrawal:
+  - text: 'الانسحاب من القبول: هو الانسحاب أثناء فترة القبول قبل إغلاق بوابة القبول ويمكن لك التقدم للجامعة مرة أخرى السنة القادمة. الانسحاب الأكاديمي: هو الانسحاب من الجامعة بعد صدور الرقم الجامعي لك وحينها تطبق ضوابط الانسحاب من الجامعة'
+  utter_faq_en/ask_admission_academic_withdrawal:
+  - text: 'Admission withdrawal: is withdrawal during the admission period before the admission portal closes, and you can apply to the university again next year. Academic withdrawal: is withdrawal from the university after the issuance of your university number, by which the regulations for withdrawal from the university apply.'
+  utter_faq_ar/ask_academic_warning:
+  - text: ' هو الإشعار الذي يوجه للطالب بسبب انخفاض معدله التراكمي عن الحد الأدنى وفقا للائحة الدراسة والاختبارات وهو (2 من 5).'
+  utter_faq_en/ask_academic_warning:
+  - text: It is the warning given to the student due to a decrease in his GPA below the minimum according to the study and exams regulations, which is (2 out of 5).
+  utter_faq_ar/ask_semester_degree:
+  - text: ' الدرجة الممنوحة للأعمال التي تبين تحصيل الطالب خلال فصل دراسي من اختبارات وبحوث وأنشطة تعليمية تتصل بالمقرر الدراسي.'
+  utter_faq_en/ask_semester_degree:
+  - text: It is the degree awarded for work that demonstrates the student’s achievement during a semester of tests, research and educational activities related to the course.
+  utter_faq_ar/ask_incomplete_evaluation:
+  - text: ' تقدير يرصد لكل مقرر يتعذر على الطالب استكمال متطلباته في الموعد المحدد ويرمز له في السجل الأكاديمي بالحرف (ل) أو (IC).'
+  utter_faq_en/ask_incomplete_evaluation:
+  - text: It is an evaluation assigned for each course that the student is unable to complete his requirements on the specified date and symbolized in the academic record by the letter (IC).
+  utter_faq_ar/ask_in_progress_evaluation:
+  - text: تقدير يرصد مؤقتا لكل مقرر تقتضي طبيعة دراسته أكثر من فصل دراسي لاستكماله، ويرمز له بالرمز (م) أو (IP)
+  utter_faq_en/ask_in_progress_evaluation:
+  - text: It is an evaluation that is allocated temporarily for each course that requires more than one semester to complete, and it is denoted by the symbol (IP).
+  utter_faq_ar/ask_semester_GPA_calculated:
+  - text: المعدل الفصلي هو حاصل قسمة مجموع النقاط التي حصل عليها الطالب على مجموع الوحدات المقررة لجميع المقررات التي درسها في أي فصل دراسي وتحسب النقاط بضرب الوحدة المقررة في وزن التقدير الذي حصل عليه في كل مقرر درسه الطالب
+  utter_faq_en/ask_semester_GPA_calculated:
+  - text: The semester GPA is the result of dividing the total points obtained by the student by the total units of all the courses he studied in any semester, and the points are calculated by multiplying the prescribed unit by the percentage of the grade obtained in each course the student studied.
+  utter_faq_ar/ask_GPA_calculated:
+  - text: حاصل قسمة مجموع النقاط التي حصل عليها الطالب في جميع المقررات التي درسها منذ التحاقه بالجامعة على مجموع الوحدات المقررة لتلك المقررات
+  utter_faq_en/ask_GPA_calculated:
+  - text: The result of dividing the total points obtained by the student in all the courses he has studied since joining the university by the total number of units prescribed for those courses.
+  utter_faq_ar/ask_levels_system:
+  - text: هو نظام دراسي يُقسّم فيه العام الدراسي إلى فصلين رئيسين، ويجوز أن يكون هناك فصل دراسي صيفي على أن تحتسب مدته بنصف مدة الفصل الرئيس، وتوزع متطلبات التخرج لنيل الدرجة العلمية إلى مستويات وفقاً للخطة الدراسية التي يقررها مجلس الجامعة.
+  utter_faq_en/ask_levels_system:
+  - text: It is a study system in which the academic year is divided into two main semesters, and may include a summer semester, provided that its duration is calculated half the term of the main semester. The graduation requirements for obtaining the academic degree are divided into levels according to the study plan decided by the University Council.
+  utter_faq_ar/ask_units_in_one_semester:
+  - text: ' أقل عدد من الوحدات الدراسية التي ينبغي على الطالب تسجيلها هو12 ساعة (وحدة) في الفصل الدراسي الواحد، والحد الأعلى للعبء الدراسي هو 20ساعة (وحدة) مع مراعاة المعدل التراكمي الذي حصل عليه الطالب، حيث يجب أن يتناسب العبء الدراسي مع المعدل التراكمي للطالب'
+  utter_faq_en/ask_units_in_one_semester:
+  - text: The minimum number of units of study that the student should register is 12 hours (units) per semester. However, the maximum number of academic loads is 20 hours (units), considering the GPA obtained by the student, as the academic load must be proportional to the student’s GPA.
+  utter_faq_ar/ask_courses_next_semester:
+  - text: يتم تسجيل المقررات بطريقه ألية من خلال عمادة القبول والتسجيل قبل بدء الفصل الدراسي.
+  utter_faq_en/ask_courses_next_semester:
+  - text: The courses are automatically registered through the Deanship of Admission and Registration before the start of the semester.
+  utter_faq_ar/ask_verify_automatic_registration:
+  - text: نعم، فيجب على الطالب القيام بتثبيت جدوله من النظام الأكاديمي على البوابة الإلكترونية للجامعة قبل نهاية الأسبوع الأول لبدء الدراسة والا اعتبر منقطعا عن الدراسة لعدم التسجيل
+  utter_faq_en/ask_verify_automatic_registration:
+  - text: Yes, the student should verify his schedule from the academic system on the online portal of the university before the end of the first week to start studying, otherwise he will be considered cut off from studying for lack of registration
+  utter_faq_ar/ask_drop_or_addition_schedule:
+  - text: نعم، يستطيع الطالب أن يحذف المقررات التي لا يريد أن يدرسها أو يضيف المقررات التي يريد أن يدرسها وذلك ضمن فترة التقويم الأكاديمي للجامعة وبما لا يتجاوز نهاية الأسبوع الأول من بدء الدراسة، ويجب ألا يقل العبء الدراسي للطالب عن12 ساعة (وحدة). ولا يزيد عن الحد الأعلى وهو20 ساعة (وحدة)
+  utter_faq_en/ask_drop_or_addition_schedule:
+  - text: Yes, the student can drop the courses that he does not want to study or add the courses he wants within the period of the university’s academic calendar and not later than the end of the first week of starting the study. The student’s academic load must not be less than 12 hours (unit and does not exceed the maximum limit of 20 hours (unit)
+  utter_faq_ar/ask_number_of_credit_hours_with_academic_warning:
+  - text: ' لا يحق للطالب المنذر أكاديميا أن يزيد العبء الدراسي لديه عن 14 ساعة'
+  utter_faq_en/ask_number_of_credit_hours_with_academic_warning:
+  - text: The student who has academic warning is not entitled to register more than 14 hours of study load
+  utter_faq_ar/ask_number_of_credit_hours_with_acceptable_evaluation:
+  - text: لا يحق للطالب الحاصل على تقدير مقبول أن يزيد العبء الدراسي لديه عن 16 ساعة
+  utter_faq_en/ask_number_of_credit_hours_with_acceptable_evaluation:
+  - text: The student who has acceptable evaluation is not entitled to register more than 16 hours of study load.
+  utter_faq_ar/ask_number_of_credit_hours_graduate_in_this_semester:
+  - text: يسمح للطالب الخريج بتجاوز الحد الأعلى بما لا يزيد عن أربع ساعات معتمدة
+  utter_faq_en/ask_number_of_credit_hours_graduate_in_this_semester:
+  - text: The graduate student can exceed the limit by no more than four credit hours.
+  utter_faq_ar/ask_absences_allowed:
+  - text: على الطالب المنتظم حضور المحاضرات والدروس العملية والدروس السريرية والتمارين، ويحرم من دخول الاختبار النهائي فيها إذا قلت نسبة حضوره عن النسبة التي يحددها مجلس الجامعة، على ألا تقل عن (75%) من المحاضرات والدروس العلمية المحددة لكل مقرر خلال الفصل الدراسي، ويعتبر الطالب الذي حرم من دخول الاختبار بسبب الغياب راسبا في المقرر ويرصد له تقدير محروم (ح)
+  utter_faq_en/ask_absences_allowed:
+  - text: The regular student must attend lectures, practical lessons, clinical lessons and exercises he will be prohibited from entering the final exam in them if his attendance rate is less than the rate determined by the University Council, if it is not less than (75%) of the lectures and scientific lessons specified for each course during the semester. A student who was denied entry to the exam due to absence is considered a frailer in the course and a denied mark (DN) will be assigned to him.
+  utter_faq_ar/ask_final_exam:
+  - text: الطالب الذي يتغيب عن الاختبار النهائي دون عذر تكون درجته صفرا في ذلك في ذلك الاختبار، ويحسب تقديره في ذلك المقرر على أساس درجات الأعمال الفصلية التي حصل عليها
+  utter_faq_en/ask_final_exam:
+  - text: The student who missed the final exam without an excuse will have a score of zero in that test, and his grade in that course is calculated upon the obtained semester work grades.
+  utter_faq_ar/ask_final_exam_for_a_compelling_excuse:
+  - text: إذا لم يتمكن الطالب من حضور الاختبار النهائي في أي من مواد الفصل لعذر قهري جاز لمجلس الكلية، في حالات الضرورة القصوى قبول عذره والسماح بإعطائه اختبارا بديلاً يتم عقده خلال مدة لا تتجاوز نهاية الفصل الدراسي التالي ويعطى التقدير الذي يحصل عليه بعد أدائه الاختبار البديل
+  utter_faq_en/ask_final_exam_for_a_compelling_excuse:
+  - text: If the student was unable to attend the final exam for a compelling excuse, the college council may, in cases of extreme necessity, accept his excuse and allow him to be given an alternative exam that is held within a period not exceeding the end of the next semester, and the grade obtained after performing the alternative exam will be adopted.
+  utter_faq_ar/ask_student_to_withdraw:
+  - text: يجوز للطالب الاعتذار عن الاستمرار في دراسة فصل دراسي دون أن يعد راسبا إذا تقدم بعذر مقبول لعميد الكلية التي ينتمي لها الطالب وذلك قبل نهاية موعد الاعتذار حسب التقويم الأكاديمي للجامعة. ويرصد للطالب(ع)
+  utter_faq_en/ask_student_to_withdraw:
+  - text: A student may withdraw for continuing to study a semester without being considered a failure if he submits an acceptable excuse to the dean of the college to which the student belongs before the end of the withdraw date according to the academic calendar of the university. The student will be given (W) mark
+  utter_faq_ar/ask_semesters_withdraw:
+  - text: ' يجب ألا تتجاوز فصول الاعتذار فصلين دراسيين متتالين أو ثلاثة فصول غير متتالية. أما طلاب الكليات التي تطبق نظام السنة الدراسية فلا يجوز الاعتذار لسنتين متتاليتين، ويجب ألا تتجاوز سنوات الاعتذار سنتين دراسيتين غير متتاليتين طيلة بقاء الطالب في الجامعة ثم يطوى قيده بعد ذلك. ويجوز للجنة الدائمة للقضايا الطلابية الاستثناء من ذلك ويرصد للطالب(ع). ويحتسب هذا الفصل من المدة اللازمة لإنهاء متطلبات التخرج'
+  utter_faq_en/ask_semesters_withdraw:
+  - text: Withdrawal semesters should not exceed two consecutive semesters or three non-consecutive semesters. As for students at colleges that apply the academic year system, it is not permissible to withdraw for two consecutive years. The years of excuses must not exceed two non-consecutive academic years for the duration of the student’s stay at the university, then his registration shall be closed after that. The Student Cases Standing Committee may make an exception and the student will be given (W) mark. This semester will be counted from the time required to complete the graduation requirements
+  utter_faq_ar/ask_permissible_withdraw_one_course:
+  - text: '  يجوز للطالب الاعتذار عن مقرر واحد أو أكثر وفق المدة المحددة نظاما على ألا يقل العبء الدراسي عن الحد الأدنى وأن يكون الاعتذار قبل نهاية موعد الاعتذار عن الفصل الدراسي'
+  utter_faq_en/ask_permissible_withdraw_one_course:
+  - text: A student may withdraw from one or more courses according to the period specified by the system, provided that the academic load is not less than the minimum, and that the withdraw is before the end of the date of the withdraw for the semester.
+  utter_faq_ar/ask_postpone_semester_for_specific_reasons:
+  - text: ' يجوز للطالب التقدم بطلب تأجيل الدراسة قبل نهاية الأسبوع الأول من بدء الدراسة لعذر يقبله عميد الكلية التي يتبعها الطالب أو من يفوضه على ألا تتجاوز مدة التأجيل فصلين دراسيين متتالين أو ثلاثة فصول دراسية غير متتالية (أما طلاب الكليات التي تطبق نظام السنة الدراسية فلا يجوز التأجيل لسنتين متتاليتين كما لا يجوز أن تتجاوز مدة التأجيل سنتين غير متتاليتين) كحد أقصى طيلة بقائه في الجامعة ثم يطوي قيده بعد ذلك'
+  utter_faq_en/ask_postpone_semester_for_specific_reasons:
+  - text: A student can apply for a study postponement before the end of the first week of the start of study for an excuse accepted by the dean of the college to which the student belongs or whoever is authorized by him, provided that the delay period does not exceed two consecutive academic semesters or three non-consecutive semesters (As for students at colleges that adopt the academic year system, it is not permissible to postpone for two years. The postponement period may not exceed two non-consecutive years) as a maximum for the duration of his stay at the university, then his registration shall be terminated after that.
+  utter_faq_ar/ask_postponement_period_counted:
+  - text: لا تحتسب مدة التأجيل ضمن المدة اللازمة لإنهاء متطلبات التخرج
+  utter_faq_en/ask_postponement_period_counted:
+  - text: The postponement period is not counted within the period necessary to complete the graduation requirements.
+  utter_faq_ar/ask_academic_situation_stopped:
+  - text: ' إذا انقطع الطالب المنتظم عن الدراسة مدة فصل دراسي دون طلب التأجيل يطوى قيده من الجامعة، ولمجلس الجامعة طي قيد الطالب إذا انقطع عن الدراسة لمدة أقل. وبالنسبة للطالب المنتسب يتم طي قيده إذا تغيب عن جميع الاختبارات النهائية لذلك الفصل دون عذر مقبول'
+  utter_faq_en/ask_academic_situation_stopped:
+  - text: If a regular student stops attending the university for a semester without requesting a postponement, his registration from the university will be terminated. However, the University Council may terminate the student’s registration if he stops attending the university for a shorter period. As for the enrolled student, his registration will be terminated if he misses all the final exams for that semester without an acceptable excuse.
+  utter_faq_ar/ask_visiting_student_withdrawn:
+  - text: ' لا يعد الطالب منقطعاَ عن الدراسة للفصول التي يدرسها زائراً في جامعة أخرى'
+  utter_faq_en/ask_visiting_student_withdrawn:
+  - text: The student is not considered a withdrawal from the university for the semesters he is studying as a visitor at another university.
+  utter_faq_ar/ask_reasons_for_terminations:
+  - text: ' :يعتبر الطالب مطويا قيده في الحالات التالية 1. الانقطاع عن الدراسة 2. الانسحاب من الجامعة 3. المفصول أكاديميا'
+  utter_faq_en/ask_reasons_for_terminations:
+  - text: 'The student is considered terminated in the following cases: 1- Dropout from study.  2- withdraw from the university.   3-academically dismissed. '
+  utter_faq_ar/ask_re_enrolled_terminated:
+  - text: 'يمكن للطالب المطوي قيده التقدم بطلب إعادة قيده برقمه وسجله قبل الانقطاع وفق الضوابط الآتية: 1. أن يتقدم بطلب إعادة القيد خلال أربعة فصول دراسية أو سنتين دراسيتين للكليات التي تطبق نظام السنة الدراسية من تاريخ طي القيد. 2. أن يوافق مجلس الكلية المعنية والجهات ذات العلاقة على إعادة قيد الطالب. 3. إذا مضى على طي قيد الطالب أربعة فصول دراسية فأكثر أو سنتين دراسيتين للكليات التي تطبق ًنظام السنة الدراسية فبإمكانه التقدم للجامعة طالبا مستجداً دون الرجوع إلى سجله الدراسي السابق على أن تنطبق عليه كافة شروط القبول المعلنة في حينه، ولمجلس الجامعة الاستثناء من ذلك وفقا لضوابط يصدرها المجلس. 4. لا يجوز إعادة قيد الطالب أكثر من مرة واحدة، ولمجلس الجامعة – في حال الضرورة – الاستثناء من ذلك. 5. لا يجوز إعادة قيد الطالب المطوي قيده إذا كان مفصولاً أكاديمياً'
+  utter_faq_en/ask_re_enrolled_terminated:
+  - text: 'The terminated student can be re-enrolled by submitting an application using his old university number, provided the following controls: 1. To apply for re-enrollment within four semesters or two academic years for the colleges that apply the academic year system from the date of the enrollment termination. 2. That the concerned college council and the relevant authorities shall agree to re-enroll the student. 3. If four semesters or more or two academic years have passed since the student’s enrollment for the colleges that apply the academic year system, he can apply to the university as a new student without referring to his previous academic record, if he shall meet all the admission requirements announced at the time, and the University Council may make an exception from that in accordance with regulations issued by the Council. 4. A student may not be re- enrolled more than once, and the University Council - in case of necessity - may make an exception. 5. An academically dismissed student cannot be re-enrolled. '
+  utter_faq_ar/ask_admissed_re_enroll:
+  - text: ' لا يجوز إعادة قيد الطالب الذي فصل من الجامعة لأسباب تعليمية أو تأديبية، أو الذي فصل من جامعة أخرى لأسباب تأديبية، وإذا اتضح بعد إعادة قيده أنه سبق فصله لمثل هذه الأسباب فيعد قيده ملغى من تاريخ إعادة القيد'
+  utter_faq_en/ask_admissed_re_enroll:
+  - text: It is not permissible to re-enroll a student who was dismissed from the university for educational or disciplinary reasons, or who was dismissed from another university for disciplinary reasons, and if it becomes clear after his re-enrollment that he was previously dismissed for such reasons, his registration is considered canceled from the date of re-registration.
+  utter_faq_ar/ask_student_graduate:
+  - text: يتخرج الطالب بعد إنهاء متطلبات التخرج بنجاح حسب الخطة الدراسية، على ألا يقل تقديره عن مقبول (أي لا يقل معدله التراكمي عن (2.00من5.00
+  utter_faq_en/ask_student_graduate:
+  - text: The student graduates after successfully completing the graduation requirements according to the study plan, provided that his grade is not less than acceptable (i.e., his GPA is not less than (2.00 out of 5.00)).
+  utter_faq_ar/ask_graduated_lower_than_2:
+  - text: لمجلس الكلية بناء على توصية مجلس القسم المختص تحديد مقررات مناسبة يدرسها الطالب لرفع معدله التراكمي وذلك في حال نجاحه في المقررات ورسوبه في المعدل
+  utter_faq_en/ask_graduated_lower_than_2:
+  - text: Upon the recommendation of the relevant department council, the college council determines appropriate courses for the student to study to raise his GPA if he succeeds in the courses and fails in the average.
+  utter_faq_ar/ask_graduation_documents:
+  - text: ' يمنح كل خريج وثيقة تخرج يوضح فيها باللغتين العربية والإنجليزية المعلومات التالية: تاريخ التخرج بالهجري والميلادي، اسم الطالب رباعياً جنسيته، رقم السجل المدني، الكلية، المعدل التراكمي، التخصص، المسار (إن وجد)، الدرجة العلمية، التقدير، ومرتبة الشرف (إن وجدت)، وتوقع الوثيقة وتختم من عميد شؤون القبول والتسجيل'
+  utter_faq_en/ask_graduation_documents:
+  - text: 'Each graduate is given a graduation certificate in which it explains in both Arabic and English the following information: the date of graduation in Hijri and Gregorian, the name of the student with quadruple nationality, civil registry number, college, GPA, specialization, track (if any), academic degree, grade, and honors (if any), And the document shall be signed and sealed by the Dean of Admission and Registration Affairs.'
+  utter_faq_ar/ask_lost_graduation_certificates:
+  - text: يمكن إصدار وثيقة تخرج كبدل مفقود وتوضع عليها عبارة بدل مفقود
+  utter_faq_en/ask_lost_graduation_certificates:
+  - text: A certificate can be issued as a lost allowance and labeled lost replacement.
+  utter_faq_ar/ask_receive_academic_warning:
+  - text: ينذر الطالب إذا انخفض معدله التراكمي عن 2.00من5.00ويظهر ذلك في السجل الأكاديمي
+  utter_faq_en/ask_receive_academic_warning:
+  - text: The student is warned if his GPA falls below 2.00 from 5.00 and this appears in his academic record.
+  utter_faq_ar/ask_academic_warnings_another_chance:
+  - text: إذا حصل الطالب على ثلاث إنذارات متتالية فإنه يعتبر مفصولا أكاديمياً حتى يصدر قرار مجلس الكلية، حيث لمجلس الكلية إعطاء الطالب فرصة رابعة، وإذا لم يتمكن الطالب من رفع معدله التراكمي بعد إعطائه هذه الفرصة فيوصي مجلس الكلية بشأنه إلى اللجنة الدائمة لمشاكل الطلاب الأكاديمية. بعد ذلك للجنة الدائمة لمشاكل الطلاب الأكاديمية إعطاء الطالب فرصة خامسة بعد توصية مجلس الكلية بشرط أن يكون هناك تحسن في أداء الطالب في الفصل الأخير بحيث لا يقل معدله الفصلي عن2.00من 5.00، فإن لم يتمكن الطالب من رفع معدله التراكمي بعد إعطائه الفرصة الخامسة فيمكن للجنة في حال الضرورة أن توصي بشأنه إلى مجلس الجامعة والذي يمكنه – استثناء -إعطاء الطالب فرصة سادسة وأخيرة بعد توصية اللجنة الدائمة لمشاكل الطلاب الأكاديمية
+  utter_faq_en/ask_academic_warnings_another_chance:
+  - text: If the student receives three consecutive warnings, he is considered academic dismissed until the College Board’s decision is issued, whereby the College Board will give the student a fourth opportunity, and if the student is unable to raise his GPA after being given this opportunity, the College Board recommends about it to the Permanent Committee for Student Academic Problems. After that, the Standing Committee for Student Academic Problems will give the student a fifth chance after the recommendation of the College Board if there is an improvement in the student’s performance in the last semester so that his semester average is not less than 2.00 out of 5.00. If the student is not able to raise his GPA after giving him the fifth chance, the committee can in case it is necessary, it should recommend it to the University Council, which can - exceptionally - give the student a sixth and final opportunity after the recommendation of the Standing Committee for Student Academic Problems.
+  utter_faq_ar/ask_maximum_study_period:
+  - text: '  الأصل أن ينهي الطالب متطلبات التخرج وفقا للمدة النظامية في الخطة الدراسية، فاذا لم ينه الطالب متطلبات التخرج في المدة المقررة فيعالج وضعه وفقا لما يلي: 1. إذا لم ينه متطلبات التخرج خلال مدة أقصاها نصف المدة المقررة لتخرجه علاوة على مدة البرنامج، فلمجلس الكلية إعطاء فرصة استثنائية للطالب لإنهاء متطلبات التخرج بحد أقصى لا يتجاوز ضعف المدة الأصلية المحددة للتخرج بشرط أن يكون سبب التعثر مقبولاً لمجلس الكلية. 2. لمجلس الجامعة إعطاء الطلاب المفصولين بسبب استنفاد ضعف مدة البرنامج فرصة لا تتجاوز فصلين دراسيين بتوصية من اللجنة الدائمة لمشاكل الطلاب الأكاديمية'
+  utter_faq_en/ask_maximum_study_period:
+  - text: "The basic principle is for the student to complete the graduation requirements according to the statutory period in the study plan. If the student does not complete the graduation requirements within the prescribed period, then his situation is treated according to the following: 1. If he does not complete the graduation requirements within a period not exceeding half of the period determined for his graduation in addition to the duration of the program, the College Council may give an exceptional opportunity to the student to complete the graduation requirements with a maximum of twice the original period specified for graduation, provided that the reason for failure is acceptable to the College Board. 2. The University Council gives students dismissed due to double the duration of the program an opportunity that does not exceed two semesters on the recommendation of the Permanent Committee for Students' Academic Problems."
+  utter_faq_ar/ask_semester_grade_calculated:
+  - text: " تحتسب درجة الأعمال الفصلية للمقرر بإحدى الطريقتين التاليتين: أ‌-\t الاختبارات الشفهية أو العملية أو البحوث أو أنواع النشاط الصفي الأخرى أو منها جميعا أو من بعضها واختبار تحريري واحد على الأقل. ب‌-\tاختبارين تحريريين على الأقل."
+  utter_faq_en/ask_semester_grade_calculated:
+  - text: 'The semester grade for the course is calculated in one of the following two ways: 1. Oral or practical exams, research, or other types of classroom activity, or all or some of them, and at least one written test. 2. At least two written exams.'
+  utter_faq_ar/ask_graduate_general_GPA:
+  - text: "1.\t(ممتـاز): إذا كان المعدل التراكمي لا يقل عن4.50من5.00. 2.\t (جيد جدا): إذا كان المعدل التراكمي من 3.75 إلى أقل من 4.50من5.00. 3.\t(جيـد): إذا كان المعدل التراكمي من 2.75إلى أقل من 3.75من5.00. 4.\t(مقـبول): إذا كان المعدل التراكمي من 2.00إلى أقل من 2.75من5.00."
+  utter_faq_en/ask_graduate_general_GPA:
+  - text: '    1- (Excellent): If the GPA is not less than 4.50 out of 5.00. 2- (Very good): If the GPA is from 3.75 to less than 4.50 out of 5.00. 3- (Good): If the GPA is from 2.75 to less than 3.75 out of 5.00. 4- (Accepted): If the GPA is from 2.00 to less than 2.75 out of 5.00.'
+  utter_faq_ar/ask_honor_degree:
+  - text: تمنح مرتبة الشرف الأولى للطالب الحاصل على معدل تراكمي من (4.75) إلى (5.00) من (5.00) عند التخرج، وتمنح مرتبة الشرف الثانية للطالب الحاصل على معدل تراكمي من (4.25) إلى أقل من (4.75) من (5.00). عند التخرج
+  utter_faq_en/ask_honor_degree:
+  - text: First class honor is granted to a student with a GPA from (4.75) to (5.00) from (5.00) upon graduation, and a second honor degree is granted to a student who has a GPA from (4.25) to less than (4.75) from (5.00). Upon graduation.
+  utter_faq_ar/ask_conditions_first_second_class_honors:
+  - text: 'ويشترط للحصول على مرتبة الشرف الأولى أو الثانية ما يلي: أ-ألا يكون الطالب قد رسب في أي مقرر درسه في الجامعة أو في جامعة أخرى. ب-أن يكون الطالب قد أكمل متطلبات التخرج في مدة أقصاها متوسط المدة بين الحد الأدنى والحد الأقصى للبقاء في كليته. ج-أن يكون الطالب قد درس في الجامعة التي سيتخرج منها ما لا يقل عن (60%) من متطلبات التخرج'
+  utter_faq_en/ask_conditions_first_second_class_honors:
+  - text: 'To obtain a first or second honors degree, the following are required: 1. The student should not have failed any course he took at the university or at another university. 2. The student has completed the graduation requirements in a period of no more than the average duration between the minimum and maximum stay of plan duration. 3. The student must have studied at the university from which he will graduate at least (60%) of the graduation requirements.'
+  utter_faq_ar/ask_more_than_one_final_exam:
+  - text: ' يجوز اختبار الطالب في أكثر من مقرر في يوم واحد، ولا يجوز اختبار الطالب في أكثر من مقررين في يوم واحد، ولمجلس الجامعة الاستثناء من ذلك'
+  utter_faq_en/ask_more_than_one_final_exam:
+  - text: The student may have two exams in one day at most, but the University Council may make an exception from that.
+  utter_faq_ar/ask_attended_final_exam:
+  - text: لا يسمح للطالب بدخول الاختبار النهائي بعد مُضي نصف ساعة من بدايته، كما لا يُسمح له بالخروج من الاختبار قبل مضي نصف ساعة من بدايته
+  utter_faq_en/ask_attended_final_exam:
+  - text: The student is not allowed to enter the final exam after half an hour has passed from its start, and he is not allowed to leave the exam before half an hour since its beginning.
+  utter_faq_ar/ask_transfer_to_PSAU:
+  - text: ' 1. أن يكون الطالب قد درس في كلية أو جامعة معترف بها لدى وزارة التعليم وله سجل أكاديمي (بمعدل تراكمي) لفصل دراسيي واحد على الأقل. 2. ألا يكون راسبا في المعدل التراكمي. 3. ألا يكون مفصولا من الجامعة المحول منها لأسباب تأديبية أو تعليمية. 4. ألا يكون التحويل من درجة علمية أدنى الى درجة علمية أعلى منها. 5. أن تنطبق عليه شروط التحويل التي يحددها مجلس الكلية. 6. يجب ألا يقل عدد الوحدات المقررة التي يطلب من الطالب المحول دراستها في جامعة الأمير سطام بن عبدالعزيز عن (60%) من عدد الوحدات المقررة المطلوبة للحصول على درجة البكالوريوس من الجامعة. 7. أن يكون مجموع ما أمضاه الطالب من مدة في الجامعة المحول منها وما بقي عليه في جامعة الأمير سطام بن عبدالعزيز مدة لا تزيد عن متوسط المدة بين الحد الأدنى والحد الأقصى للبقاء في الكلية. 8. موافقة عميد الكلية المحول إليها وفقا لضوابط التحويل التي يضعها مجلس الكلية. 9. أن تنتهي إجراءات التحويل قبل نهاية الأسبوع الأول من بداية الفصل الدراسي أو العام الدراسي للكليات التي تطبق النظام السنوي، وإذا تجاوزت الإجراءات هذه المدة فيكون التحويل للفصل الدراسي التالي. 10. أن تثبت حركة التحويل في السجل الأكاديمي للطالب'
+  utter_faq_en/ask_transfer_to_PSAU:
+  - text: "    1- The student must have studied at a college or university recognized by the Ministry Education and have an academic record (GPA) for at least one academic semester. 2- He should not have a failed GPA. 3- He should not be dismissed from the university from which he is transferred for disciplinary or educational reasons. 4- The transfer should not be from a lower academic degree to a higher degree. 5- To fulfill the transfer conditions specified by the College Board. 6- The number of prescribed units that the transferred student is required to study at PSAU must not be less than (60%) of the number of prescribed units required to obtain a bachelor's degree from the university. 7- That the sum of the period the student spent in the university from which he is transferred and the remaining period PSAU for a period not exceeding the average period between the minimum and maximum period of stay in the college. 8- The approval of the dean of the college to which he is transferred in accordance with the transfer controls set by the College Board. 9- The transfer procedures must end before the end of the first week of the beginning of the academic semester or the academic year for the colleges that apply the annual system, and if the procedures exceed this period, the transfer will be for the next semester. 10- The transfer must be recorded in the student’s academic record."
+  utter_faq_ar/ask_controls_equivalency_courses:
+  - text: ' يقوم مجلس الكلية التي يتبعها المقرر بمعادلة المقررات التي اجتازها الطالب خارج الجامعة بناء على توصية الأقسام التي تقدم هذه المقررات على ألا تتجاوز المقررات المعادلة أربعين بالمائة (40 %) من ساعات الخطة المعتمدة للتخصص المحول إليه، وتثبت في السجل الأكاديمي للطالب المقررات التي عودلت له، ولا تدخل في احتساب معدله التراكمي، بشرط أن يكون محتوى المقرر الذي اجتازه الطالب مكافئا للمقرر المراد معادلته، وإن يحصل فيه على تقدير(ج) فأعلى'
+  utter_faq_en/ask_controls_equivalency_courses:
+  - text: The faculty council to which the course is affiliated shall equalize the courses that the student has passed outside the university based on the recommendation of the departments that offer these courses, provided that the equivalent courses do not exceed forty percent (40%) of the hours of the approved plan for the major he is transferred to, and the courses returned to him are confirmed in the student’s academic record. It is not included in the calculation of his cumulative GPA, provided that the content of the course that the student has passed is equivalent to the course to be equivalent, and that he attains a grade of (C) or higher
+  utter_faq_ar/ask_permissible_change_college:
+  - text: ' يجوز تحويل الطالب من كلية إلى أخرى داخل الجامعة وفقا للضوابط التالية: موافقة عمادة القبول والتسجيل والكلية المحول إليها وفقا للضوابط والشروط التي تعلن خلال فترة التحويل '
+  utter_faq_en/ask_permissible_change_college:
+  - text: 'A student may be transferred from one college to another within the university according to the following controls: The approval of the Deanship of Admission and Registration and the college to which he is transferred in accordance with the terms and conditions announced during the transfer period.'
+  utter_faq_ar/ask_GPA_transfer_another_college:
+  - text: تثبت في السجل الأكاديمي للطالب المحول من كلية إلى أخرى جميع المواد التي سبق له دراستها، ويشمل ذلك التقديرات والمعدلات الفصلية والتراكمية طوال دراسته في الجامعة
+  utter_faq_en/ask_GPA_transfer_another_college:
+  - text: All subjects previously studied, including grades, semester, and cumulative averages, are recorded in the academic record of the student transferred from one college to another throughout his studies at the university.
+  utter_faq_ar/ask_visiting_student:
+  - text: ' الطالب الزائر هو الذي يقوم بدراسة بعض المقررات في جامعة أخرى أو في فرع من فروع الجامعة التي ينتمي إليها دون تحويله. وتعادل له المواد التي درسها وفقا للضوابط التي أقرها مجلس الجامعة'
+  utter_faq_en/ask_visiting_student:
+  - text: A visiting student is one who studies some courses at another university or in a branch of the university to which he belongs without transferring him. The courses he studied shall be equivalent to him according to the regulations approved by the University Council.
+  utter_faq_ar/ask_maximum_number_courses_visiting_student:
+  - text: الحد الأقصى لمجموع الوحدات الدراسية التي يمكن احتسابها من خارج الجامعة هو (20%) عشرين في المئة من مجموع وحدات التخرج من جامعة الأمير سطام بن عبدالعزيز
+  utter_faq_en/ask_maximum_number_courses_visiting_student:
+  - text: The maximum number of units of study that can be counted from outside the university is (20%) twenty percent of the total units of graduation from Prince Sattam bin Abdulaziz University.
+  utter_faq_ar/ask_policies_visiting_students:
+  - text: 1. يجب الحصول على الموافقة المسبقة من كلية الطالب للسماح له بالدراسة كطالب زائر مع تحديد المقررات التي سيقوم بدراستها، وللكلية اشتراط الحصول على معدل معين لمعادلة المقرر. ويوجه للدراسة بخطاب رسمي من عمادة شؤون القبول والتسجيل. 2. أن يكون للطالب سجل أكاديمي (بمعدل تراكمي) لفصل واحد على الأقل في الجامعة قبل طلبه الدراسة كطالب زائر. 3. أن تكون الدراسة في كلية أو جامعة معترف بها. 4.) أن يكون المقرر الذي يدرسه الطالب خارج الجامعة معادلا أو (مكافئاً) في مفرداته لأحد المقررات التي تتضمنها متطلبات التخرج. 5. مراعاة الفقرة (د) من المادة (الثانية والأربعين)، يكون الحد الأقصى لمجموع الوحدات الدراسية التي يمكن احتسابها من خارج الجامعة هو (20 %) عشرين في المئة من مجموع وحدات التخرج من جامعة الأمير سطام بن عبدالعزيز. 6. لا تحتسب معدلات المقررات التي تتم معادلتها للطالب الزائر ضمن معدله التراكمي، وتثبت المقررات في سجله الأكاديمي. 7.يجب على الطالب تزويد عمادة القبول والتسجيل بنتائجه التي حصل عليها خلال أسبوعين من بدء الدراسة في أول فصل دراسي يلي فترة دراسته زائراً. 8. وإذا لم يقدم نتائجه يعتبر منقطعا عن تلك الفصول (عدا الفصول الصيفية) ويعامل حسب المادة (15). 9. تصرف المكافأة الشهرية للطالب الزائر إن كان مستحقا لها عن طريق مسيرات يدوية بعد تقديم نتائجه عن الفصل لعمادة شؤون القبول والتسجيل. 10. الحد الأقصى للفصول الدراسية التي يسمح للطالب دراستها زائرا فصلان دراسيان
+  utter_faq_en/ask_policies_visiting_students:
+  - text: '    1- A prior approval must be obtained from the student’s college to allow him to study as a visiting student with specifying the courses that he will study, and the college may require obtaining a specific grade to equal the course. And he is directed to study by an official letter from the Deanship of Admission and Registration Affairs. 2- The student must have an academic record (GPA) for at least one semester at the university prior to his request to study as a visiting student. 3- It must be an accredited college or university. 4- That the course the student is studying outside the university must be equivalent in its vocabulary to one of the courses included in the graduation requirements. 5- Subject to Paragraph (d) of Article (forty-second), the maximum total of the study units that can be calculated from outside the university is (20%) twenty percent of the total units of graduation from PSAU. 6- The grads of the courses that are equivalent to the visiting student are not counted in his cumulative GPA, but the courses are recorded in his academic record. 7- The student must provide the Deanship of Admission and Registration with the results obtained within two weeks of starting the study in the first semester following the period of his studies as a visitor. 8- If he does not present his results, he will be considered cut off from those seasons (except for the summer semesters) and he is treated according to Article (15). 9- The monthly reward for the visiting student, if he is entitled to it, shall be paid through manual demonstrations after submitting his results on the dismissal to the Deanship of Admission and Registration Affairs. 10- The maximum number of semesters a student can study as a visitor is two semesters.'
+  utter_faq_ar/ask_policies_visiting_students_PSAU:
+  - text: 'لطالب جامعة أخرى ويرغب الدراسة طالبا زائراً في جامعة الأمير سطام بن عبدالعزيز مراعاة الضوابط التالية: 1. أن يكون للطالب سجل أكاديمي (بمعدل تراكمي) لفصلين على الأقل من جامعته التي قبل فيها. 3.00 من 5.00 فأكثر وأنهى 80% من ساعات خطته الدراسية ولمدير الجامعة أو من يفوضه الاستثناء من ذلك. 2.ألا يكون الطالب مفصولاً لأسباب تأديبية أو تعليمية. 3. أن يحصل على موافقة خطية مسبقة من جامعته للدراسة طالبا زائراً في جامعة الأمير سطام بن عبدالعزيز، ويجب أن يذكر في الخطاب مقررات جامعة الأمير سطام بن عبدالعزيز التي سيقوم الطالب بدراستها. 4.أن يحصل على موافقة الكلية التي يرغب الدراسة بها زائرا. 5. لا تصرف للطالب الزائر من جامعة أخرى مكافأة من جامعة الأمير سطام بن عبدالعزيز. 6. تسجل المقررات للطالب من قبل عمادة شؤون القبول والتسجيل مع مراعاة كافة ضوابط التسجيل في المقررات. 7. يزود الطالب في نهاية دراسته بسجل أكاديمي يوضح نتائج المقررات التي درسها'
+  utter_faq_en/ask_policies_visiting_students_PSAU:
+  - text: 1- The student must have an academic record (GPA) for at least two semesters from his university in which he was accepted. 3.00 from 5.00 or more and finish 80% of the hours of his study plan, and the Rector of the University or whomever he delegates may make an exception from that. 2- The student should not be dismissed for disciplinary or educational reasons. 3-  To obtain prior written approval from his university to study as a visiting student at Prince Sattam bin Abdulaziz University, and he must mention in the letter the decisions of Prince Sattam bin Abdulaziz University that the student will study. 4- To obtain the approval of the college he wishes to study in as a visitor. 5- A visiting student from another university will not receive a reward from PSAU. 6- Courses are registered for the student by the Deanship of Admission and Registration Affairs, considering all registration controls in the courses. 7- At the end of his studies, the student is provided with an academic record showing the results of the courses he studied.
+  utter_faq_ar/ask_conditions_student’s_reward:
+  - text: 1.يجب أن يكون الطالب منتظما في الدراسة. 2. يجب أن يكون الطالب سعودي أو من أم سعودية. 3. يجب ألا يكون الطالب موظفا. 4. يجب أن يستلم الطالب مكافآته قبل انتهاء المدة النظامية المقررة لصرف، وهي ثلاثة أشهر من بداية تاريخ الصرف
+  utter_faq_en/ask_conditions_student’s_reward:
+  - text: '    1- The student must be a regular student. 2- The student must be a Saudi or from a Saudi mother. 3- The student must not be an employee. 4- The student must receive his rewards before the expiry of the statutory period set for disbursement, which is three months from the start of the disbursement date.'
+  utter_faq_ar/ask_student_rewards_stop:
+  - text: 'تتوقف عملية صرف المكافأة في الحالات التالية: 1. إذا تدنى معدل الطالب التراكمي عن (2. من5) وأصبح لديه إنذار أكاديمي. 2. إذا اعتذر أو أجل أو انسحب الطالب من أي فصل دراسي. 3. إذا أنهى الطالب مدة الدراسة النظامية المقررة من قبل الكليات وهي (4سنوات)، (8أترام دراسية). 4. إذا حصل الطالب على قرار تأديبي (كطالب مطلوب للمساءلة) بسبب ارتكابه مخالفة لأنظمة الجامع'
+  utter_faq_en/ask_student_rewards_stop:
+  - text: "    1- If the student's cumulative GPA falls below (2. out of 5) and has an academic warning. 2- If he dropped, postponed, or withdrew from any semester. 3- If the student finishes the regular period of study prescribed by the colleges, which is (4 years), (8 academic courses). 4- If the student receives a disciplinary decision (as a student wanted for accountability) for violating university regulations."
+  utter_faq_ar/ask_student_rewards:
+  - text: 1.مكافآت القسم العلمي (1000) ألف ريال. 2.مكافآت القسم الأدبي (850) ثمانمائة وخمسون ريال
+  utter_faq_en/ask_student_rewards:
+  - text: '    1- Scientific Department rewards (1000) thousand riyals. 2- Art Department reward (850) eight hundred and fifty riyals.'
+  utter_faq_ar/ask_allowance:
+  - text: "•\tبدل قارئ (5240) خمسة آلاف ومائتين وأربعون ريالاً تمنح للطالب /الطالبة الكفيف •\tبدل إعاقة (1500) ألف وخمسمائة ريالاً تمنح للطالب /الطالبة من ذوي الاحتياجات الخاصة. •\tتنويه لابد من استكمال نموذج الفحص الطبي للحصول على مكافأة بدل قارئ أو مكافأة بدل إعاقة"
+  utter_faq_en/ask_allowance:
+  - text: "Allowances only for the following cases: • A reader's allowance (5240) five thousand two hundred forty riyals granted to the blind male / female student • A disability allowance of (1500) one thousand five hundred riyals is granted to a male / female student with special needs."
+  utter_faq_ar/ask_deduction_rewards:
+  - text: "1.\tمكافآت القسم العلمي (1000) ألف ريال مخصوماً منها (10) عشرة ريالات لصالح صندوق الطلاب المبلغ بعد الخصم (990) ريال فقط. 2.\tمكافآت القسم الأدبي (850) ثمانمائة وخمسون ريال مخصوماً منها (10) عشرة ريالات لصالح صندوق الطلاب المبلغ بعد الخصم (840) ريال فقط"
+  utter_faq_en/ask_deduction_rewards:
+  - text: '    1- The rewards of the scientific department are (1000) thousand riyals minus (10) ten riyals in favor of the student fund, the amount after the deduction is only (990) riyals. 2- The art department rewards are (850) eight hundred and fifty riyals minus (10) ten riyals in favor of the student fund, the amount after the deduction is (840) riyals only.'
+  utter_faq_ar/ask_student_fund_benefit:
+  - text: ' 1. تقديم الإعانات والقروض للطلاب. 2. إقامة مشروعات استثمارية خدمية نافعة للطلاب كالمقاصف وأعمال الطباعة والنسخ والتصوير وتأمين الأدوات المكتبية وما يماثلها. 3. دعم الأنشطة الطلابية وتقديم الجوائز للمتفوقين فيها'
+  utter_faq_en/ask_student_fund_benefit:
+  - text: '    1- Providing subsidies and loans to students. 2- Establishing beneficial service investment projects for students, such as canteens, printing, copying, and photocopying, and providing office supplies and the like. 3- Supporting student activities and providing awards to the outstanding students'
+  utter_faq_ar/ask_student_card:
+  - text: ' البطاقة الجامعية: هي بطاقة تعريفية تعطى للطالب المنتظم في الجامعة، تتضمن بياناته الشخصية والرقم الجامعي والقسم، ويجب على الطالب حملها في جميع الحالات. ويمكن الحصول عليها من عمادة شؤون القبول والتسجيل. ولاستخراج البطاقة الجامعية يتوجب على الطالب تحميل الصورة الشخصية للطلاب فقط ومراجعة عمادة شؤون القبول والتسجيل مصطحبا معه: 1. أشعار القبول. 2. أصل بطاقة الأحوال'
+  utter_faq_en/ask_student_card:
+  - text: 'University card: It is an identification card given to the regular student at the university, which includes his personal data, university number and department, and the student must carry it in all cases. It can be obtained from the Deanship of Admission and Registration Affairs. To get the university card, the student must download the student’s personal photo only and refer to the Deanship of Admission and Registration Affairs with: 1. Notice of Admission. 2. The original Civil Status card.'
+  utter_faq_ar/ask_academic_record:
+  - text: 'السجل الأكاديمي: هو كشف مفصل يوضح مسيرة الطالب الأكاديمية ويحتوي على المواد التي اجتازها الطالب والدرجات والمواد المتبقية والمعدل التراكمي لكل فصل دراسي. بيان يوضح سير الطالب الدراسي، ويشمل المقررات التي يدرسها في كل فصل دراسي برموزها وأرقامها وعدد وحدتها المقررة والتقديرات التي حصل عليها ورموز وقيم تلك التقديرات، كما يوضح السجل المعدل الفصلي والمعدل التراكمي وبيان التقدير العام بالإضافة إلى المقررات التي أعفي منها الطالب المحول  '
+  utter_faq_en/ask_academic_record:
+  - text: 'The Academic Record: It is a detailed transcript showing the student’s academic career, and it contains the courses that the student passed, grades, remaining materials, and the cumulative average for each semester. A statement showing the student’s academic progress, and it includes the courses he studies in each semester, with their symbols and numbers, the number of its assessed unit, the grades obtained, the symbols and values of those grades, and the record shows the semester average, GPA, and a general grade statement in addition to the courses from which the transferred student was exempt.'
+  utter_faq_ar/ask_withdrawn_enroll_again:
+  - text: الطالب الذي يتقدم بطلب انسحاب من الجامعة ويسحب ملفه نهائيا لا يمكنه العودة أو إعادة قيده في الجامعة قبل مضي سنتين
+  utter_faq_en/ask_withdrawn_enroll_again:
+  - text: A student who applies to withdraw from the university and withdraws his file permanently cannot return or re-enroll in the university before the lapse of two years.
+  utter_faq_ar/ask_academic_calendar:
+  - text: هو بيان يوضح التسلسل الزمني للعام الجامعي بدءا من الفصل الأول مرورا بالفصل الثاني وانتهاء بالفصل الدراسي الصيفي.ويستطيع الطالب أن يعرف من خلال التقويم الجامعي موعد التحويل من داخل وخارج الجامعة وبداية الدراسة في الفصل الدراسي، وموعد تأجيل الفصل، والحذف والإضافة، وإعادة القيد، والانسحاب من الجامعة، والاعتذار عن الفصل الدراسي والاعتذار عن مقرر، وبداية الاختبارات لمواد الإعداد العام والاختبارات النهائية وغيرها من الأمور الأكاديمية التي تهم الطالب في مسيرته التعليمية في الجامعة
+  utter_faq_en/ask_academic_calendar:
+  - text: It is a statement showing the chronology of the academic year starting from the first semester through the second semester and ending with the summer semester. The student can know through the academic calendar the date of transfer from inside and outside the university, the beginning of the study in the semester, the date for postponing the semester, the deletion and addition, the re-enrollment, the withdrawal from the university, the drop for the semester and the drop for a course, the beginning of the exams for the subjects of general preparation and final exams and others One of the academic matters of interest to the student in his educational career at the university.
+  utter_faq_ar/ask_lost_university_card:
+  - text: عليك مراجعة وتبليغ قسم القبول في عمادة شؤون الطلاب وسيتم صرف بطاقة (بدل مفقود) خلال عشرة أيام من تاريخ التبليغ
+  utter_faq_en/ask_lost_university_card:
+  - text: You must notify the Admission Department at the Deanship of Student Affairs, and a lost allowance card will be issued within ten days from the date of notification.
+  utter_faq_ar/ask_academic_online_portal:
+  - text: 'البوابة الإلكترونية هي منفذ الطالب للنظام الأكاديمي للجامعة والتي يستطيع الطالب من خلالها متابعة وضعه الأكاديمي في كل ما يهم مسيرته الجامعية. والبوابة الإلكترونية للجامعة تقدم العديد من الخدمات الأكاديمية للطالب ومن أبرزها: الحصول على الجدول الدراسي. إجراء عمليات الحذف والإضافة ضمن فترة التقويم الأكاديمي. تنفيذ الحركات الأكاديمية والتي تشمل (الاعتذار عن فصل، الانسحاب، الاعتذار عن مقرر). الحصول على السجل الاكاديمي. معرفة الوضع الاكاديمي للطالب. استعراض نتائج المقررات والفصل الدراسي بشكل عام. وتم إضافة العديد من الخدمات الإلكترونية – من خلال خدمات الطلاب-، إضافةً إلى العديد من الفيديوهات التعريفية في موقع عمادة شؤون القبول والتسجيل مؤخراً بما يساعد الطلاب والطالبات على الاستمرار في الدراسة في -الجامعة'
+  utter_faq_en/ask_academic_online_portal:
+  - text: "The online portal is the student’s port of the university’s academic system, through which the student can follow up on his academic status in everything that matters his university career. The university's online portal provides many academic services to students, most notably: Obtain the course schedule. Conduct deletions and additions within the academic calendar period. Executing academic movements that include (dropping a semester, withdrawing, dropping a course). Obtain an academic record. Knowing the student's academic status. Review course results and semester in general. Several e-services have been added - through student services-, in addition to many introductory videos on the website of the Deanship of Admission and Registration Affairs recently, to help the students to continue studying at the university."
+  utter_faq_ar/ask_forgot_my_password:
+  - text: بالإمكان الدخول لخدمات الطلاب – ثم الدخول لخدمة الدخول الموحد ثم الدخول على نسيت كلمة المرور
+  utter_faq_en/ask_forgot_my_password:
+  - text: You can log in to the student services, next click on to the single sign-on service, then click on the forgotten password.
+  utter_faq_ar/ask_bridging_programs:
+  - text: للأسف، لا يوجد حاليا برنامج تجسير في جامعة الأمير سطام بن عبدالعزيز وفي حال وجوده سيتم الإعلان من خلال الموقع الإلكتروني للجامعة
+  utter_faq_en/ask_bridging_programs:
+  - text: Unfortunately, there is currently no bridging program at Prince Sattam bin Abdulaziz University, and if it exists, it will be announced through the university's website.
+  utter_faq_ar/ask_lost_my_card:
+  - text: 'نعم عمادة شؤون الطلاب –قسم المكافآت هي الجهة المختصة بذلك. ويمكن التواصل معها من خلال الموقع الإلكتروني التالي: https://dsa.psau.edu.sa/ar/page/1-508'
+  utter_faq_en/ask_lost_my_card:
+  - text: 'Yes, the Deanship of Student Affairs - Reward Department is the competent authority for that. It can be contacted through the following website: https://dsa.psau.edu.sa/ar/page/1-508'
+  utter_faq_ar/ask_accommodation:
+  - text: 'هي عمادة شؤون الطلاب-قسم وكالة الخدمات الطلابية والإسكان ويمكن التواصل معها من خلال الموقع الإلكتروني التالي: https://dsa.psau.edu.sa/ar/page/1-508'
+  utter_faq_en/ask_accommodation:
+  - text: 'It is the Deanship of Student Affairs - Department of Student Services and Housing Department. It can be contacted through the following website: https://dsa.psau.edu.sa/ar/page/1-508'
+  utter_faq_ar/ask_excuse_get_rejected:
+  - text: ' ليس لعمادة شؤون القبول والتسجيل علاقة بذلك، يمكنك التواصل مع رئيس القسم وتقديم العذر الطبي'
+  utter_faq_en/ask_excuse_get_rejected:
+  - text: The Deanship of Admission and Registration Affairs has nothing to do with this, you can contact the head of the department and provide a medical excuse.
+  utter_faq_ar/ask_transfer_time:
+  - text: بالإمكان التواصل مع شؤون الطلاب بالكلية – وطلب تعديل مسار حيث لا يعتبر ذلك تحويل
+  utter_faq_en/ask_transfer_time:
+  - text: Please, contact the College Student Affairs - and request a course change as this is not considered a transfer.
+  utter_faq_ar/ask_additional_opportunity:
+  - text: يمكنك التواصل مع وكالة الجامعة للشؤون التعليمية والأكاديمية من خلال وحدة الشؤون الطلابية. https://vreaa.psau.edu.sa/ar/phone-directory
+  utter_faq_en/ask_additional_opportunity:
+  - text: Please, contact the University Vice-Rectorate for Educational and Academic Affairs through the Student Affairs Unit. https://vreaa.psau.edu.sa/ar/phone-directory
+actions:
+- action_site
+- action_detect_lang
+- action_start_massage
+- utter_restart
+- validate_information_form
+- action_ask_name
+- action_ask_problem
+- action_ask_email
+- action_ask_phone
+- action_finish_form
+- response_fallback
+- response_fallback_utters
+- ask_exchange_slots
+- response_ask_exchange_slots
+- response_exchange_slots
+- utter_faq_ar
+- utter_faq_en
+forms:
+  information_form:
+    email:
+    - entity: your_email_En
+      type: from_text
+    - entity: your_email_Ar
+      type: from_entity
+    name:
+    - entity: your_name_En
+      type: from_text
+    - entity: your_name_Ar
+      type: from_entity
+    phone:
+    - entity: your_phone_Ar
+      type: from_entity
+    - entity: your_phone_En
+      type: from_text
+    problem:
+    - entity: my_problems_technical_En
+      type: from_text
+    - entity: my_problems_technical_Ar
+      type: from_entity
+e2e_actions: []

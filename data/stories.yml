@@ -1,0 +1,314 @@
+version: "2.0"
+stories:
+- story: university_Site path
+  steps:
+  - intent: start_massage
+  - action: action_start_massage
+  - intent: greet_En
+  - action: action_detect_lang
+  - action: utter_greet_En
+  - intent: how_are_you_En
+  - action: utter_how_are_you_En
+  - intent: bot_challenge_En
+  - action: utter_bot_challenge_En
+  - intent: ask_for_help_En
+  - action: utter_ask_for_help_En
+  - intent: university_accounts_En
+  - action: utter_university_accounts_En
+  - action: action_site
+  - intent: bot_history_En
+  - action: utter_bot_history_En
+  - intent: thanks_En
+  - action: utter_thanks_En
+  - intent: goodbye_En
+  - action: utter_goodbye_En
+  - intent: stop
+  - action: action_restart
+- story: university_Site_Ar path
+  steps:
+  - intent: start_massage
+  - action: action_start_massage
+  - intent: greet_Ar
+  - action: action_detect_lang
+  - action: utter_greet_Ar
+  - intent: how_are_you_Ar
+  - action: utter_how_are_you_Ar
+  - intent: bot_challenge_Ar
+  - action: utter_bot_challenge_Ar
+  - intent: ask_for_help_Ar
+  - action: utter_ask_for_help_Ar
+  - intent: university_accounts_Ar
+  - action: utter_university_accounts_Ar
+  - action: action_site
+  - intent: bot_history_Ar
+  - action: utter_bot_history_Ar
+  - intent: thanks_Ar
+  - action: utter_thanks_Ar
+  - intent: goodbye_Ar
+  - action: utter_goodbye_Ar
+  - intent: stop
+  - action: action_restart
+- story: problem_Technical path
+  steps:
+  - intent: start_massage
+  - action: action_start_massage
+  - intent: greet_En
+  - action: action_detect_lang
+  - action: utter_greet_En
+  - intent: how_are_you_En
+  - action: utter_how_are_you_En
+  - intent: bot_challenge_En
+  - action: utter_bot_challenge_En
+  - intent: ask_for_help_En
+  - action: utter_ask_for_help_En
+  - intent: my_problems_technical_En
+  - action: information_form
+  - active_loop: information_form
+  - intent: thanks_En
+  - action: utter_thanks_En
+  - intent: goodbye_En
+  - action: utter_goodbye_En
+  - intent: stop
+  - action: action_restart
+- story: problem_Technical_Ar path
+  steps:
+  - intent: start_massage
+  - action: action_start_massage
+  - intent: greet2_Ar
+  - action: action_detect_lang
+  - action: utter_greet2_Ar
+  - intent: how_are_you_Ar
+  - action: utter_how_are_you_Ar
+  - intent: bot_challenge_Ar
+  - action: utter_bot_challenge_Ar
+  - intent: ask_for_help_Ar
+  - action: utter_ask_for_help_Ar
+  - intent: my_problems_technical_Ar
+  - action: information_form
+  - active_loop: information_form
+  - intent: thanks_Ar
+  - action: utter_thanks_Ar
+  - intent: goodbye_Ar
+  - action: utter_goodbye_Ar
+  - intent: stop
+  - action: action_restart
+- story: problem_Blackboard path
+  steps:
+  - intent: start_massage
+  - action: action_start_massage
+  - intent: greet_En
+  - action: action_detect_lang
+  - action: utter_greet_En
+  - intent: how_are_you_En
+  - action: utter_how_are_you_En
+  - intent: bot_challenge_En
+  - action: utter_bot_challenge_En
+  - intent: ask_for_help_En
+  - action: utter_ask_for_help_En
+  - intent: thanks_En
+  - action: utter_thanks_En
+  - intent: goodbye_En
+  - action: utter_goodbye_En
+  - intent: stop
+  - action: action_restart
+- story: problem_Blackboard_Ar path
+  steps:
+  - intent: start_massage
+  - action: action_start_massage
+  - intent: greet_Ar
+  - action: action_detect_lang
+  - action: utter_greet_Ar
+  - intent: how_are_you_Ar
+  - action: utter_how_are_you_Ar
+  - intent: bot_challenge_Ar
+  - action: utter_bot_challenge_Ar
+  - intent: ask_for_help_Ar
+  - action: utter_ask_for_help_Ar
+  - intent: thanks_Ar
+  - action: utter_thanks_Ar
+  - intent: goodbye_Ar
+  - action: utter_goodbye_Ar
+  - intent: stop
+  - action: action_restart
+- story: problem_ITdl path
+  steps:
+  - intent: start_massage
+  - action: action_start_massage
+  - intent: greet_En
+  - action: action_detect_lang
+  - action: utter_greet_En
+  - intent: how_are_you_En
+  - action: utter_how_are_you_En
+  - intent: bot_challenge_En
+  - action: utter_bot_challenge_En
+  - intent: ask_for_help_En
+  - action: utter_ask_for_help_En
+  - intent: itdl_information_En
+  - action: utter_itdl_information_En
+  - intent: bot_history_En
+  - action: utter_bot_history_En
+  - intent: thanks_En
+  - action: utter_thanks_En
+  - intent: goodbye_En
+  - action: utter_goodbye_En
+  - intent: stop
+  - action: action_restart
+- story: problem_ITdl_Ar path
+  steps:
+  - intent: start_massage
+  - action: action_start_massage
+  - intent: greet2_Ar
+  - action: action_detect_lang
+  - action: utter_greet2_Ar
+  - intent: how_are_you_Ar
+  - action: utter_how_are_you_Ar
+  - intent: ask_for_help_Ar
+  - action: utter_ask_for_help_Ar
+  - intent: itdl_information_Ar
+  - action: utter_itdl_information_Ar
+  - intent: bot_history_Ar
+  - action: utter_bot_history_Ar
+  - intent: thanks_Ar
+  - action: utter_thanks_Ar
+  - intent: goodbye_Ar
+  - action: utter_goodbye_Ar
+  - intent: stop
+  - action: action_restart
+- story: job path
+  steps:
+  - intent: start_massage
+  - action: action_start_massage
+  - intent: greet_En
+  - action: action_detect_lang
+  - action: utter_greet_En
+  - intent: how_are_you_En
+  - action: utter_how_are_you_En
+  - intent: bot_challenge_En
+  - action: utter_bot_challenge_En
+  - intent: bot_history_En
+  - action: utter_bot_history_En
+  - intent: ask_for_help_En
+  - action: utter_ask_for_help_En
+  - intent: jobs_information_En
+  - action: utter_jobs_information_En
+  - intent: thanks_En
+  - action: utter_thanks_En
+  - intent: goodbye_En
+  - action: utter_goodbye_En
+  - intent: stop
+  - action: action_restart
+- story: job_Ar path
+  steps:
+  - intent: start_massage
+  - action: action_start_massage
+  - intent: greet_Ar
+  - action: action_detect_lang
+  - action: utter_greet_Ar
+  - intent: how_are_you_Ar
+  - action: utter_how_are_you_Ar
+  - intent: bot_challenge_Ar
+  - action: utter_bot_challenge_Ar
+  - intent: ask_for_help_Ar
+  - action: utter_ask_for_help_Ar
+  - intent: jobs_information_Ar
+  - action: utter_jobs_information_Ar
+  - intent: bot_history_Ar
+  - action: utter_bot_history_Ar
+  - intent: thanks_Ar
+  - action: utter_thanks_Ar
+  - intent: goodbye_Ar
+  - action: utter_goodbye_Ar
+  - intent: stop
+  - action: action_restart
+- story: name_Ar path
+  steps:
+  - intent: your_name_Ar
+  - action: information_form
+  - active_loop: information_form
+- story: name_En path
+  steps:
+  - intent: your_name_En
+  - action: information_form
+  - active_loop: information_form
+- story: problem_Ar path
+  steps:
+  - intent: my_problems_technical_Ar
+  - action: information_form
+  - active_loop: information_form
+- story: problem_En path
+  steps:
+  - intent: my_problems_technical_En
+  - action: information_form
+  - active_loop: information_form
+- story: start path
+  steps:
+  - intent: start_massage
+  - action: action_start_massage
+- story: end path
+  steps:
+  - intent: stop
+  - action: action_restart
+- story: test ar path
+  steps:
+  - intent: greet_En
+  - action: action_detect_lang
+  - action: utter_greet_En
+  - intent: how_are_you_En
+  - action: utter_how_are_you_En
+  - intent: my_problems_technical_En
+  - action: information_form
+  - active_loop: information_form
+  - intent: thanks_En
+  - action: utter_thanks_En
+- story: test en path
+  steps:
+  - intent: greet_En
+  - action: action_detect_lang
+  - action: utter_greet_En
+  - intent: ask_for_help_En
+  - action: utter_ask_for_help_En
+  - intent: my_problems_technical_En
+  - action: information_form
+  - active_loop: information_form
+  - intent: thanks_En
+  - action: utter_thanks_En
+- story: phone_En path
+  steps:
+  - intent: your_phone_En
+  - action: information_form
+  - active_loop: information_form
+- story: email_En path
+  steps:
+  - intent: your_email_En
+  - action: information_form
+  - active_loop: information_form
+- story: itdl_information path
+  steps:
+  - intent: itdl_information_En
+  - action: utter_itdl_information_En
+- story: itdl_information_Ar path
+  steps:
+  - intent: itdl_information_Ar
+  - action: utter_itdl_information_Ar
+- story: greet_Ar path
+  steps:
+  - intent: greet_Ar
+  - action: action_detect_lang
+  - action: utter_greet_Ar
+- story: greet2_Ar path
+  steps:
+  - intent: greet2_Ar
+  - action: action_detect_lang
+  - action: utter_greet2_Ar
+- story: jobs_Ar path
+  steps:
+  - intent: jobs_information_Ar
+  - action: utter_jobs_information_Ar
+- story: jobs_En path
+  steps:
+  - intent: jobs_information_En
+  - action: utter_jobs_information_En
+- story: university_accounts_En path
+  steps:
+  - intent: university_accounts_En
+  - action: utter_university_accounts_En
